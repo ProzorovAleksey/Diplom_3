@@ -6,8 +6,10 @@ from urls import Urls
 
 @allure.suite('Проверка основного функционала')
 class TestMain:
+
     @allure.title('Переход по клику на "Конструктор"')
     def test_click_constructor(self, driver):
+
         main_page = MainPage(driver)
         main_page.click_constructor_button()
 
@@ -15,6 +17,7 @@ class TestMain:
 
     @allure.title('Переход по клику на "Лента заказов"')
     def test_click_order_feed(self, driver):
+
         main_page = MainPage(driver)
         main_page.click_order_feed_button()
 
@@ -22,6 +25,7 @@ class TestMain:
 
     @allure.title('При клике на ингредиент появляется всплывающее окно с деталями')
     def test_click_ingredient(self, driver):
+
         main_page = MainPage(driver)
         main_page.click_ingredient()
 
@@ -29,6 +33,7 @@ class TestMain:
 
     @allure.title('Всплывающее окно закрывается кликом по крестику')
     def test_ingredient_modal_closed(self, driver):
+
         main_page = MainPage(driver)
         main_page.click_ingredient()
         main_page.click_close_modal()
@@ -37,6 +42,7 @@ class TestMain:
 
     @allure.title('При добавлении ингредиента в заказ увеличивается счетчик')
     def test_ingredient_counter_increases(self, driver):
+
         main_page = MainPage(driver)
         main_page.wait_for_bun_available()
         main_page.drag_ingredient_to_constructor()
@@ -45,6 +51,7 @@ class TestMain:
 
     @allure.title('Оформление заказа авторизованным пользователем')
     def test_authorized_user_can_create_order(self, driver, create_user):
+
         main_page = MainPage(driver)
         main_page.login_to_account(create_user)
         main_page.wait_for_bun_available()

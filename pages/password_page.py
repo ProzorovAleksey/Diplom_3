@@ -4,9 +4,6 @@ import allure
 
 
 class PasswordPage(BasePage):
-    @allure.step('Клик по кнопке «Восстановить пароль»')
-    def click_recovery_password_button(self):
-        self.click_element(PasswordLocators.button_recovery_password)
 
     @allure.step('Ввод email')
     def enter_email(self, email):
@@ -15,10 +12,6 @@ class PasswordPage(BasePage):
     @allure.step('Клик по кнопке «Восстановить»')
     def click_restore_button(self):
         self.click_element(PasswordLocators.button_restore)
-
-    @allure.step('Проверить наличие кнопки «Сохранить»')
-    def check_save_button_displayed(self):
-        return self.displaying_element(PasswordLocators.button_save)
 
     @allure.step('Ожидание появления кнопки «Сохранить»')
     def wait_for_save_button(self):
@@ -35,14 +28,3 @@ class PasswordPage(BasePage):
     @allure.step('Получить текущий URL')
     def get_current_url(self):
         return self.get_url()
-
-    @allure.step('Клик по кнопке «Личный кабинет»')
-    def click_personal_account_button(self):
-        self.click_element(PasswordLocators.button_personal_account)
-
-    @allure.step('Восстановить пароль для email')
-    def recover_password(self, email):
-        self.click_recovery_password_button()
-        self.enter_email(email)
-        self.click_restore_button()
-        return self.wait_for_save_button()

@@ -4,7 +4,7 @@ from selenium import webdriver
 from faker import Faker
 from urls import Urls
 
-@pytest.fixture(params=['firefox'])
+@pytest.fixture(params=['chrome'])
 def driver(request):
     browser_name = request.param
     if browser_name == 'chrome':
