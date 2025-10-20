@@ -17,7 +17,7 @@ class TestPersonalAccount:
         main_page.click_personal_account_button()
 
         with allure.step('Проверяем что загрузился личный кабинет'):
-            assert '/account' in main_page.get_current_url()
+            assert '/account' in main_page.get_url()
 
 
     @allure.title('Переход в раздел "История заказов"')

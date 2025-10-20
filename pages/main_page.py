@@ -12,9 +12,6 @@ class MainPage(BasePage):
     def click_enter_account_button(self):
         self.click_element(MainPageLocators.enter_account_button)
 
-    @allure.step('Получить текущий URL')
-    def get_current_url(self):
-        return self.get_url()
 
     @allure.step('Клик по кнопке «Лента заказов»')
     def click_order_feed_button(self):

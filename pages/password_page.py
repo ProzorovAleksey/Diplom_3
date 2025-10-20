@@ -24,7 +24,3 @@ class PasswordPage(BasePage):
     @allure.step('Проверить активность поля пароля')
     def is_password_field_active(self):
         return self.displaying_element(PasswordLocators.new_password)
-
-    @allure.step('Получить текущий URL')
-    def get_current_url(self):
-        return self.get_url()

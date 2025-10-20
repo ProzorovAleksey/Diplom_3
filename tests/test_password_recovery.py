@@ -1,3 +1,4 @@
+from pages.base_page import BasePage
 from pages.password_page import PasswordPage
 from pages.main_page import MainPage
 from conftest import driver
@@ -15,7 +16,7 @@ class TestPasswordRecovery:
         main_page.click_enter_account_button()
         main_page.click_restore_password()
 
-        assert main_page.get_current_url() == Urls.FORGOT_PASSWORD
+        assert main_page.get_url() == Urls.FORGOT_PASSWORD
 
     @allure.title('Ввод почты и клик по кнопке "Восстановить"')
     def test_email_input_and_recovery_flow(self, driver, create_user):
@@ -31,7 +32,7 @@ class TestPasswordRecovery:
 
         with allure.step('Ждем появления кнопки сохранения'):
             assert password_page.wait_for_save_button(), "Кнопка 'Сохранить' не появилась"
-            assert password_page.get_current_url() == Urls.RESET_PASSWORD
+            assert password_page.get_url == Urls.RESET_PASSWORD
 
     @allure.title('Клик по кнопке показать/скрыть пароль делает поле активным')
     def test_password_visibility_toggle_activates_field(self, driver, create_user):
